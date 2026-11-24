@@ -3,6 +3,7 @@ package devtrack_api.controller;
 
 import devtrack_api.dto.ProjectRequest;
 import devtrack_api.dto.ProjectResponse;
+import devtrack_api.dto.GitHubRepositoryRequest;
 import devtrack_api.service.ProjectService;
 
 import jakarta.validation.Valid;
@@ -57,6 +58,18 @@ public class ProjectController {
 
         return ResponseEntity.ok(
                 projectService.updateProject(id, request)
+        );
+    }
+
+    // Link GitHub repository to a project
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
+    @PutMapping("/{projectId}/github")
+    public ResponseEntity<ProjectResponse> linkGitHubRepository(
+            @PathVariable Long projectId,
+            @Valid @RequestBody GitHubRepositoryRequest request) {
+
+        return ResponseEntity.ok(
+                projectService.linkGitHubRepository(projectId, request)
         );
     }
 

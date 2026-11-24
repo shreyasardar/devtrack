@@ -18,9 +18,21 @@ public class Project {
     @Column(length = 1000)
     private String description;
 
+    // GitHub repository details
+    @Column(length = 100)
+    private String githubOwner;
+
+    @Column(length = 100)
+    private String githubRepo;
+
+    @Column(length = 500)
+    private String githubUrl;
+
+    @Column(length = 100)
+    private String githubDefaultBranch;
+
     private LocalDateTime createdAt;
 
-    // Default constructor
     public Project() {
     }
 
@@ -48,6 +60,38 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getGithubOwner() {
+        return githubOwner;
+    }
+
+    public void setGithubOwner(String githubOwner) {
+        this.githubOwner = githubOwner;
+    }
+
+    public String getGithubRepo() {
+        return githubRepo;
+    }
+
+    public void setGithubRepo(String githubRepo) {
+        this.githubRepo = githubRepo;
+    }
+
+    public String getGithubUrl() {
+        return githubUrl;
+    }
+
+    public void setGithubUrl(String githubUrl) {
+        this.githubUrl = githubUrl;
+    }
+
+    public String getGithubDefaultBranch() {
+        return githubDefaultBranch;
+    }
+
+    public void setGithubDefaultBranch(String githubDefaultBranch) {
+        this.githubDefaultBranch = githubDefaultBranch;
     }
 
     public LocalDateTime getCreatedAt() {
